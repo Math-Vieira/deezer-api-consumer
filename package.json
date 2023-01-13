@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Math-Vieira/deezer-api-consumer/issues"
   },
-  "homepage": "https://github.com/Math-Vieira/deezer-api-consumer#readme"
+  "homepage": "https://github.com/Math-Vieira/deezer-api-consumer#readme",
+  "devDependencies": {
+    "git-commit-msg-linter": "^4.5.0"
+  }
 }
