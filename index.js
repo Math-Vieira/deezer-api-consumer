@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
 const rateLimit = require("express-rate-limit");
+const { createChartUrl, createSearchUrl } = require("./api/endpoints");
 const app = express();
 const port = 8080;
 const apiLimiter = rateLimit({
