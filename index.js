@@ -1,9 +1,23 @@
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
-const { createChartUrl, createSearchUrl } = require("./api/endpoints");
+const rateLimit = require("express-rate-limit");
 const app = express();
 const port = 8080;
+const apiLimiter = rateLimit({
+    windowMs: 1 * 60 * 1000, // 120 minutes
+    max: 50, // Limit each IP to 10 requests per `window` (here, per 120 minutes)
+    standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+    legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+    handler: (req, res, next, options) => {
+        res.status(options.statusCode).json({
+            message: "Too many request. Wait a minute.",
+        });
+    },
+});
+
+//config rateLimit
+app.use("/", apiLimiter);
 
 //cors config
 app.use(
