@@ -5,8 +5,8 @@ const rateLimit = require("express-rate-limit");
 const app = express();
 const port = 8080;
 const apiLimiter = rateLimit({
-    windowMs: 1 * 60 * 1000, // 120 minutes
-    max: 50, // Limit each IP to 10 requests per `window` (here, per 120 minutes)
+    windowMs: 1 * 60 * 1000, // 1 minute
+    max: 50, // Limit each IP to 50 requests per `window` (here, per 1 minute)
     standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
     legacyHeaders: false, // Disable the `X-RateLimit-*` headers
     handler: (req, res, next, options) => {
