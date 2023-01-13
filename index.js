@@ -37,6 +37,10 @@ app.get("/search/:query/:type/:limit/:index", async (req, res) => {
     }
 });
 
+app.use("/", (req, res) => {
+    res.status(404).json({ message: "Not found" });
+});
+
 app.listen(port, () => {
     console.log(`server running in port ${port}`);
 });
