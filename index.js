@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
-const endpoint = require("./api/endpoints");
+const { createChartUrl, createSearchUrl } = require("./api/endpoints");
 const app = express();
 const port = 8080;
 
@@ -19,20 +19,24 @@ app.use(
 app.use(express.json());
 
 //config routes
-app.get("/chart", async (req, res) => {
+app.get("/chart/:type/:limit/:index", async (req, res) => {
     try {
-        const { data } = await axios(endpoint.chart);
+        const { data } = await axios(createChartUrl(req.params));
         res.status(200).json(data);
     } catch (e) {
-        res.status(500).json({ message: "Server error. Please try again" });
+        res.status(500).json(e);
     }
 });
 
-app.get("/search", async (req, res) => {
+app.get("/search/:query/:type/:limit/:index", async (req, res) => {
     try {
-    } catch (e) {}
+        const { data } = await axios(createSearchUrl(req.params));
+        res.status(200).json(data);
+    } catch (e) {
+        res.status(500).json(e);
+    }
 });
 
 app.listen(port, () => {
     console.log(`server running in port ${port}`);
-})
+});
