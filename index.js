@@ -35,4 +35,4 @@ app.get("/search", async (req, res) => {
 
 app.listen(port, () => {
     console.log(`server running in port ${port}`);
-});
+}).on('error', console.log(e));
