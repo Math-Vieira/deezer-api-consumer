@@ -19,5 +19,8 @@
   "homepage": "https://github.com/Math-Vieira/deezer-api-consumer#readme",
   "devDependencies": {
     "git-commit-msg-linter": "^4.5.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
   }
 }
