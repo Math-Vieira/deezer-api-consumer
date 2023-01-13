@@ -12,12 +12,11 @@ const apiLimiter = rateLimit({
     legacyHeaders: false, // Disable the `X-RateLimit-*` headers
     handler: (req, res, next, options) => {
         res.status(options.statusCode).json({
-            message: "Too many request. Wait a minute.",
+            message: "Too many requests. Wait a minute.",
         });
     },
 });
 
-//config rateLimit
 app.use("/", apiLimiter);
 
 //cors config
@@ -30,7 +29,7 @@ app.use(
     })
 );
 
-//requisition parse
+//request parse
 app.use(express.json());
 
 //config routes
