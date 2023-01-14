@@ -17,6 +17,7 @@ const apiLimiter = rateLimit({
     },
 });
 
+//config rateLimit
 app.use("/", apiLimiter);
 
 //cors config
@@ -55,6 +56,7 @@ app.use("/", (req, res) => {
     res.status(404).json({ message: "Not found" });
 });
 
+//Start server
 app.listen(port, () => {
     console.log(`server running in port ${port}`);
 });
