@@ -8,4 +8,3 @@ module.exports.createChartUrl = ({ type, limit, index }) => {
 module.exports.createSearchUrl = ({ type, limit, index, query }) => {
     return `${baseSearchUrl}${query}&type=${type}&limit=${limit}&index=${index}`;
 };
-//https://api.deezer.com/search?q=eminem&type=track&limit=1&index=2
