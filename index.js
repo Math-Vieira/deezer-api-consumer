@@ -36,9 +36,9 @@ app.use(express.json());
 //config routes
 app.get("/chart/:type/:limit/:index", async (req, res) => {
     try {
-        const requestUrl = createChartUrl(req.params)
+        const requestUrl = createChartUrl(req.params);
         const { data } = await axios(requestUrl);
-        res.status(200).json(data);
+        res.status(200).json({ ...data, statusCode: 200 });
     } catch (e) {
         res.status(500).json(e);
     }
@@ -46,9 +46,9 @@ app.get("/chart/:type/:limit/:index", async (req, res) => {
 
 app.get("/search/:query/:type/:limit/:index", async (req, res) => {
     try {
-        const requestUrl = createSearchUrl(req.params)
+        const requestUrl = createSearchUrl(req.params);
         const { data } = await axios(requestUrl);
-        res.status(200).json(data);
+        res.status(200).json({ ...data, statusCode: 200 });
     } catch (e) {
         res.status(500).json(e);
     }
