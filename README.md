@@ -1,4 +1,4 @@
-<h1>:blue_car: Deezer api consumer</h1>
+<h1>:blue_car: Deezer api consumer</h1> 
 
 <div style="display: inline_block">
 <img src="https://img.shields.io/badge/JavaScript-brightgreen"/>
